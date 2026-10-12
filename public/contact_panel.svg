@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-labelledby="title desc">
+  <title id="title">Contact blueprint panel</title>
+  <desc id="desc">A dark navy blueprint-style contact panel with pale guide lines and orange accent blocks.</desc>
+  <defs>
+    <linearGradient id="navy" x1="0" y1="0" x2="0.9" y2="1"><stop offset="0" stop-color="#123d70"/><stop offset="1" stop-color="#09264b"/></linearGradient>
+    <linearGradient id="steel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7898bf"/><stop offset="1" stop-color="#607fa6"/></linearGradient>
+  </defs>
+  <rect x="25" y="35" width="1150" height="230" rx="1.5" fill="url(#navy)" stroke="#d5e6f7" stroke-width="2"/>
+  <rect x="29" y="39" width="1142" height="222" fill="none" stroke="#7f9dbd" stroke-width="1"/>
+  <rect x="42" y="52" width="1116" height="196" fill="none" stroke="#b8cee4" stroke-width="1.2" stroke-dasharray="4 5"/>
+  <path d="M42 68V52H58 M1142 52H1158V68 M42 232V248H58 M1142 248H1158V232" fill="none" stroke="#dceaf8" stroke-width="2.5"/>
+  <text x="72" y="105" fill="#c7d9ed" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="600" letter-spacing="5">CONTACT</text>
+  <rect x="72" y="122" width="665" height="31" fill="url(#steel)"/>
+  <rect x="812" y="122" width="140" height="31" fill="#ff7135"/>
+  <rect x="968" y="122" width="86" height="31" fill="url(#steel)"/>
+  <rect x="1068" y="122" width="76" height="31" fill="url(#steel)"/>
+</svg>
