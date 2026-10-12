@@ -6,8 +6,8 @@ export function EducationSheet() {
     <div className="edu">
       <article className="bp-card panel edu-card">
         <div className="edu-stamp">GRADUATED</div>
-        <div className="edu-meta">EDU-01 · {education.shortPeriod}</div>
         <h3 className="edu-title">{education.institution}</h3>
+        <div className="edu-meta">{education.shortPeriod}</div>
         <div className="edu-degree">
           {education.degree} · {education.field}
         </div>
