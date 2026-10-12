@@ -330,8 +330,9 @@ directly. Two controls sit just above the nav bar (`ViewControls.tsx`):
   new size and stays sharp.
 - With a keyboard, the arrow keys work on both the slider and the focused
   joystick (130 px per press).
-- Opening a zone (tap or nav button) resets the view, so the camera always
-  leans in from the untouched plan and returns to it on close.
+- Opening a zone (tap or nav button) sets the view aside, so the camera always
+  leans in from the untouched plan; on close the visitor's zoom and position
+  are put back.
 - The controls fade out with the header and nav while a zone is focused.
 
 State and drag handling live in `usePlanView`; the maths is in `lib/view.ts`.

@@ -41,7 +41,7 @@ export default function Blueprint({ focused, onOpen, viewportWidth, viewportHeig
   }, [cam.zoom, onZoom]);
 
   const small = useMediaQuery(SMALL_SCREEN);
-  const { view, setView, dragging, stageHandlers } = usePlanView(stageRef, small && !focused);
+  const { view, setView, dragging, stageHandlers } = usePlanView(stageRef, small, focused !== null);
   // A held slider or joystick drives the plan directly, like a drag.
   const [live, setLive] = useState(false);
   const [hover, setHover] = useState<ZoneKey | null>(null);

@@ -14,19 +14,32 @@ interface Drag {
 
 /**
  * The visitor's own pan/zoom of the plan: state for the control buttons plus
- * drag-to-pan handlers for the stage. While `enabled` is false the view is
- * dropped, so the camera always starts from the untouched plan.
+ * drag-to-pan handlers for the stage. While `paused` (a zone is open) the view
+ * is set aside, so the camera always starts from the untouched plan, and it is
+ * put back afterwards. Off small screens (`available` false) it is dropped.
  */
-export function usePlanView(stageRef: RefObject<HTMLDivElement | null>, enabled: boolean) {
+export function usePlanView(stageRef: RefObject<HTMLDivElement | null>, available: boolean, paused: boolean) {
   const [view, setView] = useState<View>(HOME);
+  const [saved, setSaved] = useState<View>(HOME);
   const [dragging, setDragging] = useState(false);
   const drag = useRef<Drag | null>(null);
   const swallowClick = useRef(false);
+  const enabled = available && !paused;
 
-  const [wasEnabled, setWasEnabled] = useState(enabled);
-  if (enabled !== wasEnabled) {
-    setWasEnabled(enabled);
-    if (!enabled) setView(HOME);
+  const [wasAvailable, setWasAvailable] = useState(available);
+  const [wasPaused, setWasPaused] = useState(paused);
+  if (available !== wasAvailable || paused !== wasPaused) {
+    setWasAvailable(available);
+    setWasPaused(paused);
+    if (!available) {
+      setView(HOME);
+      setSaved(HOME);
+    } else if (paused && !wasPaused) {
+      setSaved(view);
+      setView(HOME);
+    } else if (!paused && wasPaused) {
+      setView(clampView(saved));
+    }
   }
 
   const onPointerDown = (e: PointerEvent<HTMLDivElement>) => {
